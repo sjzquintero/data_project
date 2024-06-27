@@ -22,9 +22,16 @@
       <li><%= link_to 'Cocktails', cocktails_path, class: 'text-white' %></li>
       <li><%= link_to 'Meals', meals_path, class: 'text-white' %></li>
       <li><%= link_to 'Ingredients', ingredients_path, class: 'text-white' %></li>
-      </ul>
-    </div>
-  </nav>
+       <li>
+            <%= form_tag search_path, method: :get, class: "flex items-center" do %>
+              <%= text_field_tag :query, params[:query], placeholder: "Search", class: "p-2 rounded-md mr-2" %>
+              <%= button_tag type: :submit, class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md" do %>
+                Search
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
   
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
