@@ -11,15 +11,23 @@
   </head>
 
   <body>
+   <nav class="bg-gray-800 p-4 fixed w-full top-0 z-10 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-xl font-bold">
+        <%= link_to 'DataProject', root_path, class: 'text-white' %>
+      </div>
+      <ul class="flex space-x-4">
+        <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
+      <li><%= link_to 'About', about_path, class: 'text-white' %></li>
+      <li><%= link_to 'Cocktails', cocktails_path, class: 'text-white' %></li>
+      <li><%= link_to 'Meals', meals_path, class: 'text-white' %></li>
+      <li><%= link_to 'Ingredients', ingredients_path, class: 'text-white' %></li>
+      </ul>
+    </div>
+  </nav>
+  
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
-       <nav class="bg-gray-800 p-4">
-    <ul class="flex space-x-4">
-      <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
-      <li><%= link_to 'About', about_path, class: 'text-white' %></li>
-      <!-- Otros enlaces de navegación... -->
-    </ul>
-  </nav>
     </main>
   </body>
 </html>

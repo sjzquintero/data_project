@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'ingredients/index'
+  get 'ingredients/show'
+  get 'meals/index'
+  get 'meals/show'
+  get 'cocktails/index'
+  get 'cocktails/show'
   get 'pages/about'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,5 +18,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
    get 'about', to: 'pages#about'
+
+   resources :cocktails, only: [:index, :show]
+   resources :meals, only: [:index, :show]
+   resources :ingredients, only: [:index, :show]
 
 end
