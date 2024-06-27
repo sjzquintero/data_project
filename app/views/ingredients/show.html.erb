@@ -1,1 +1,15 @@
 <h1><%= @ingredient.name %></h1>
+
+<h2>Cocktails with <%= @ingredient.name %></h2>
+<ul>
+  <% @ingredient.cocktails.each do |cocktail| %>
+    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+  <% end %>
+</ul>
+
+<h2>Meals with <%= @ingredient.name %></h2>
+<ul>
+  <% @ingredient.meals.each do |meal| %>
+    <li><%= link_to meal.name, meal_path(meal) %></li>
+  <% end %>
+</ul>
