@@ -1,0 +1,72 @@
+<!-- app/views/pages/about.html.erb -->
+<div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+  <h1 class="text-4xl font-bold mb-6">About Us</h1>
+  
+  <section class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Data Description and Integration Plan</h2>
+    <p class="text-lg mb-4">
+      The project utilizes data from two primary sources: the Cocktail Database API and the Meal Database API. These APIs provide structured information about cocktails and meals respectively.
+    </p>
+  </section>
+
+  <section class="mb-8">
+    <h3 class="text-xl font-semibold mb-4">Data Structure:</h3>
+    <ul class="list-disc list-inside text-lg mb-4">
+      <li><strong>Cocktail Data:</strong> Includes attributes such as name, instructions, glass type, and creation/update timestamps.</li>
+      <li><strong>Meal Data:</strong> Contains details like meal name, cooking instructions, category, and timestamps.</li>
+    </ul>
+  </section>
+
+  <section class="mb-8">
+    <h3 class="text-xl font-semibold mb-4">Database Tables and Columns:</h3>
+    <ul class="list-disc list-inside text-lg mb-4">
+      <li><strong>Cocktails Table:</strong>
+        <ul class="list-disc list-inside ml-6">
+          <li>id (Primary Key)</li>
+          <li>name</li>
+          <li>instructions</li>
+          <li>glass</li>
+          <li>created_at, updated_at</li>
+        </ul>
+      </li>
+      <li><strong>Meals Table:</strong>
+        <ul class="list-disc list-inside ml-6">
+          <li>id (Primary Key)</li>
+          <li>name</li>
+          <li>instructions</li>
+          <li>category</li>
+          <li>created_at, updated_at</li>
+        </ul>
+      </li>
+      <li><strong>Ingredients Table:</strong>
+        <ul class="list-disc list-inside ml-6">
+          <li>id (Primary Key)</li>
+          <li>name</li>
+        </ul>
+      </li>
+      <li><strong>CocktailIngredients Table (Many-to-Many):</strong>
+        <ul class="list-disc list-inside ml-6">
+          <li>id (Primary Key)</li>
+          <li>cocktail_id (Foreign Key referencing Cocktails)</li>
+          <li>ingredient_id (Foreign Key referencing Ingredients)</li>
+        </ul>
+      </li>
+      <li><strong>MealIngredients Table (Many-to-Many):</strong>
+        <ul class="list-disc list-inside ml-6">
+          <li>id (Primary Key)</li>
+          <li>meal_id (Foreign Key referencing Meals)</li>
+          <li>ingredient_id (Foreign Key referencing Ingredients)</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-8">
+    <h3 class="text-xl font-semibold mb-4">Integration and Relationships:</h3>
+    <ul class="list-disc list-inside text-lg mb-4">
+      <li><strong>CocktailIngredients and MealIngredients:</strong> These tables establish many-to-many relationships between Cocktails and Ingredients, and between Meals and Ingredients respectively. This allows multiple cocktails and meals to share common ingredients.</li>
+      <li><strong>Data Synchronization:</strong> Data synchronization involves fetching cocktails and meals based on predefined criteria (e.g., starting with specific letters) to manage API rate limits and optimize data retrieval.</li>
+      <li><strong>API Integration:</strong> APIs are accessed programmatically to retrieve structured data, which is then stored in the database using Active Record models in Ruby on Rails.</li>
+    </ul>
+  </section>
+</div>
