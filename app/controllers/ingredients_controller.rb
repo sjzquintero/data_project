@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = Ingredient.all
+    @ingredients =  Ingredient.order(:name).page(params[:page]).per(10)
   end
 
   def show
